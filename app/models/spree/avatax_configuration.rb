@@ -23,8 +23,10 @@ class Spree::AvataxConfiguration < Spree::Preferences::Configuration
   end
 
   def self.environment
-    if !Rails.env.test?
+    if Rails.env.production?
       :production
+    else
+      :sandbox
     end
   end
 end
